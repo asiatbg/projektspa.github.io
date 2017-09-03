@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicons//favicon-16x16.png">
+    <link rel="manifest" href="./favicons//manifest.json">
+    <link rel="mask-icon" href="./favicons//safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Amatic+SC">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
+    <script type="text/javascript" src="caman-4.1.2.min.js"></script>
+    <script src="jscolor.js"></script>
+    <link href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href = "main.css" type="text/css" rel="stylesheet">
+    <script src="angular.js"></script>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" ></script>
+    <meta content="width=device-width, initial-scale=1" user-scalable=no>
+    <title>Edipix - Photo Editor</title>
+</head>
+<body id="body" ng-app="tut">
+    <div class="container-fluid">   
+        <div class="row">
+            <div class="navbar">
+                <h1><img src="./favicons/apple-touch-icon.png" height="40" width="40"/>EDIPIX - Photo Editor</h1>
+                <label for="imgLoader">
+                    <img src="./icons/noniechcibedzie.svg" height="40" width="40" class="invert" title="Choose image"/>
+                </label>
+                <input id="imgLoader" type="file"/><br>
+            </div>
+            <div id="canvasDiv" class="col-lg-9"> 
+            
+            </div>
+            <div class="col-lg-3">
+                <div class="col-lg-6">
+                    <label for="hue">Hue</label>
+                    <input id="hue" name="hue" type="range" min="0" max="300" value="0">
+                    <label for="contrast">Contrast</label>
+                    <input id="contrast" name="contrast" type="range" min="-20" max="20" value="0">
+                </div>
+                <div class="col-lg-6">
+                    <label for="vibrance">Vibrance</label>
+                    <input id="vibrance" name="vibrance" type="range" min="0" max="400" value="0">
+                    <label for="sepia">Sepia</label>
+                    <input id="sepia" name="sepia" type="range" min="0" max="100" value="0">
+                </div>
+                <p>Change background colour:
+                    <input id="palette" class="jscolor {onFineChange:'update(this)'}" value="1b2429">
+                    <div id="converter">
+                        HEX String = <span id="hex-str"></span><br />
+                        RGB String = <span id="rgb-str"></span><br />
+                        R, G, B = <span id="rgb"></span>
+                    </div>
+                <nav class="filters">
+                    <button id="resetbtn" class="btn">Reset Photo</button>
+                    <button id="brightnessbtn" class="btn">Brightness</button>
+                    <button id="cropbtn" class="btn">Crop</button>
+                </nav>
+                <nav class="filters">
+                    <button id="noisebtn" class="btn">Noise</button>
+                    <button id="sepiabtn" class="btn">Sepia</button>
+                    <button id="contrastbtn" class="btn">Contrast</button>
+                </nav>
+                <nav class="filters">
+                    <button id="colorbtn" class="btn">Colorize</button>
+                    <button id="vintagebtn" class="btn">Vintage</button>
+                    <button id="lomobtn" class="btn">Lomo</button>
+                </nav>
+                <nav class="filters">
+                    <button id="embossbtn" class="btn">Emboss</button>
+                    <button id="tiltshiftbtn" class="btn">Tilt Shift</button>
+                    <button id="radialblurbtn" class="btn">Radial Blur</button>
+                </nav>
+                <nav class="filters">
+                    <button id="edgeenhancebtn" class="btn">Edge Enhance</button>
+                    <button id="posterizebtn" class="btn">Posterize</button>
+                    <button id="claritybtn" class="btn">Clarity</button>
+                </nav>
+                <nav class="filters">
+                    <button id="orangepeelbtn" class="btn">Orange Peel</button>
+                    <button id="sincitybtn" class="btn">Sin City</button>
+                    <button id="sunrisebtn" class="btn">Sun Rise</button>
+                </nav>
+                <nav class="filters">
+                    <button id="crossprocessbtn" class="btn">Cross Process</button>
+                    <button id="hazydaysbtn" class="btn">Hazy</button>
+                    <button id="lovebtn" class="btn">Love</button>
+                </nav>
+                <nav class="filters">
+                    <button id="grungybtn" class="btn">Grungy</button>
+                    <button id="jarquesbtn" class="btn">Jarques</button>
+                    <button id="pinholebtn" class="btn">Pin Hole</button>
+                </nav>
+                <nav class="filters">
+                    <button id="oldbootbtn" class="btn">Old Boot</button>
+                    <button id="glowingsunbtn" class="btn">Glow Sun</button>
+                </nav>
+                <nav class="filters">
+                    <button id="hdrbtn" class="btn">HDR Effect</button>
+                    <button id="oldpaperbtn" class="btn">Old Paper</button>
+                    <button id="pleasantbtn" class="btn">Pleasant</button>
+                </nav>
+                <nav class="filters">
+                    <button id="savebtn" class="btn"><img src="./icons/download.svg" height="30" width="30" class="invert" title="Save image"/></button>
+                </nav>
+            </div>
+        </div>      
+    </div>
+    <button id="show">Pokaż ramki</button>
+    <button id="clear">Schowaj ramki</button>
+    <button id="draw">Draw</button>
+    <div id="hideDiv" ng-controller="myCtrl">     
+        <div id="divFrames" ng-repeat="frame in frames">
+            <img class="example" ng-src="{{frame.url}}" id="frame-{{$index}}" height="150px" width="200px">
+        </div>
+        <div id="place"></div>
+    </div>
+    
+    
+    <script src="frameFunction.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
