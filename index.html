@@ -112,17 +112,17 @@
             </div>
         </div>      
     </div>
-    <button id="show">Pokaż ramki</button>
-    <button id="clear">Schowaj ramki</button>
-    <button id="draw">Draw</button>
-    <div id="hideDiv" ng-controller="myCtrl">     
-        <div id="divFrames" ng-repeat="frame in frames">
-            <img class="example" ng-src="{{frame.url}}" id="frame-{{$index}}" height="150px" width="200px">
+    <div>
+        <button id="show">Pokaż ramki</button>
+        <button id="clear">Schowaj ramki</button>
+        <button id="draw">Draw</button>
+        <div id="hideDiv" ng-controller="myCtrl">     
+            <div id="divFrames" ng-repeat="frame in frames">
+                <img class="example" ng-src="{{frame.url}}" id="frame-{{$index}}" height="150px" width="200px">
+            </div>
+            <div id="place"></div>
         </div>
-        <div id="place"></div>
     </div>
-    
-    
     <script src="frameFunction.js"></script>
     <script src="main.js"></script>
 </body>

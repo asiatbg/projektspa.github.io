@@ -6,7 +6,7 @@ app.config(['$httpProvider', function($httpProvider) {
 ]);
 app.controller("myCtrl", function($scope, $http){
     var model
-    $http.get("http://wizard.uek.krakow.pl/~s186883/ramki/frames.json").then(function (response) {
+    $http.get("https://wizard.uek.krakow.pl/~s186883/ramki/frames.json").then(function (response) {
         $scope.frames = response.data;
     });
 });
