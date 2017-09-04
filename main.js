@@ -13,7 +13,7 @@ document.getElementById('imgLoader').onchange = function handleImage(e) {
     var reader = new FileReader();
     reader.onload = function (event) {
         var imgObj = new Image();
-        imgObj.crossOrigin = "";
+        imgObj.crossOrigin = "Anonymous";
         imgObj.src = event.target.result;
         imgObj.onload = function () {
             var img = new fabric.Image(imgObj);
@@ -107,6 +107,7 @@ $(document).ready(function () {
     var $oldpaper = $('#oldpaperbtn');
     var $pleasant = $('#pleasantbtn');
 
+//    var $save = $('#savebtn');
     var $save = $('#savebtn');
 
   /* As soon as slider value changes call applyFilters */
@@ -323,11 +324,14 @@ $(document).ready(function () {
         });
       });
 
-      /* You can also save it as a jpg image, extension need to be added later after saving image. */
+    
+   
 
-      $save.on('click', function(e) {
-        Caman('#canvas', img, function() {
-          this.render(function() {
+        $save.on('click', function(e) {
+        localStorage.setItem( "savedImageData", document.getElementById('canvas').toDataURL("image/png") );
+          var imageResult = localStorage.getItem("savedImageData");
+        Caman('#canvas', imageResult, function() {
+            this.render(function() {
             this.save('png');
           });
         });

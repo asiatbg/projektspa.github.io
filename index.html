@@ -118,7 +118,7 @@
         <button id="draw">Draw</button>
         <div id="hideDiv" ng-controller="myCtrl">     
             <div id="divFrames" ng-repeat="frame in frames">
-                <img class="example" ng-src="{{frame.url}}" id="frame-{{$index}}" height="150px" width="200px">
+                <img class="example" ng-src="{{frame.url}}" id="frame-{{$index}}" height="150px" width="200px" crossorigin="Anonymous">
             </div>
             <div id="place"></div>
         </div>
