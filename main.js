@@ -66,12 +66,23 @@ function update(jscolor) {
     var picker = localStorage.getItem("palette");
     document.getElementById('hex-str').innerHTML = "#" + picker;
     document.getElementById('rgb-str').innerHTML = hexToR(picker) + "" + hexToG(picker) + "" + hexToB(picker);
-
     document.getElementById('rgb').innerHTML =
         hexToR(picker) + ", " + hexToG(picker) + ", " + hexToB(picker);
 }
 
 $(document).ready(function () {
+    var backgroundColor = document.getElementById('palette');
+    var picker = localStorage.getItem("palette");
+    if (localStorage.getItem("palette") != "1b2429"){
+        backgroundColor.value = picker;
+        document.getElementById('body').style.background = '#' + picker;
+        document.getElementById('hex-str').innerHTML = "#" + picker;
+        document.getElementById('rgb-str').innerHTML = hexToR(picker) + "" + hexToG(picker) + "" + hexToB(picker);
+        document.getElementById('rgb').innerHTML =
+        hexToR(picker) + ", " + hexToG(picker) + ", " + hexToB(picker);
+    } else {
+        backgroundColor.value = "1b2429";
+    }
 
     var $reset = $('#resetbtn');
     var $brightness = $('#brightnessbtn');
@@ -323,9 +334,6 @@ $(document).ready(function () {
           this.render();
         });
       });
-
-    
-   
 
         $save.on('click', function(e) {
         localStorage.setItem( "savedImageData", document.getElementById('canvas').toDataURL("image/png") );

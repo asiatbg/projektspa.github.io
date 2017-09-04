@@ -51,7 +51,7 @@
                     <input id="sepia" name="sepia" type="range" min="0" max="100" value="0">
                 </div>
                 <p>Change background colour:
-                    <input id="palette" class="jscolor {onFineChange:'update(this)'}" value="1b2429">
+                    <input id="palette" class="jscolor {onFineChange:'update(this)'}" >
                     <div id="converter">
                         HEX String = <span id="hex-str"></span><br />
                         RGB String = <span id="rgb-str"></span><br />
@@ -118,7 +118,7 @@
         <button id="draw">Draw</button>
         <div id="hideDiv" ng-controller="myCtrl">     
             <div id="divFrames" ng-repeat="frame in frames">
-                <img class="example" ng-src="{{frame.url}}" id="frame-{{$index}}" height="150px" width="200px" crossorigin="Anonymous">
+                <img class="example" ng-src="{{frame.url}}" id="frame-{{$index}}" height="150px" width="200px">
             </div>
             <div id="place"></div>
         </div>
